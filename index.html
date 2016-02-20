@@ -1,18 +1,29 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app='redditClone'>
   <head>
     <meta charset="UTF-8">
     <title>Reddit Clone</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.2/angular.js'></script>
     <script type='text/javascript' src='index.js'></script>
   </head>
-  <body>
+  <body ng-controller='MyController'>
     <header>
       <p>Reddit Clone</p>
-      <p>Submit Post</p>
+      <button class='newPost' ng-click='showme=true'><i class='fa fa-plus'></i>Submit Post</button>
       <p><input type='text' placeholder='Search'></p>
       <p>Sort By Votes</p>
     </header>
+    <div ng-show='showme'>
+     <form ng-submit='addPost'>
+     <input type='text' ng-model='title' placeholder='Title'>
+     <input type='text' ng-model='author' placeholder='Author'>
+     <input type='text' ng-model='image' placeholder='Image'>
+     <input type='hidden' value=''>
+     <textarea placeholder='Description' ng-model='description'></textarea>
+     <input type='submit' ng-click='showme=false' value='Submit'>
+     </form>
+    </div>
   </body>
 </html>
