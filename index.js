@@ -1,8 +1,7 @@
 var app = angular.module('RedditClone', ['angularMoment', 'ngAnimate']);
 app.controller('reddit', function($scope) {
   $scope.showme = false;
-  $scope.showComm = false;
-  $scope.showNewComm = false;
+
 
   $scope.posts= [
     { title: 'Big Sur, CA',
@@ -10,6 +9,7 @@ app.controller('reddit', function($scope) {
       description: 'Big Sur is a lightly populated region of the Central Coast of California where the Santa Lucia Mountains rise abruptly from the Pacific Ocean. Although it has no specific boundaries, many definitions of the area include the 90 miles (140 km) of coastline from the Carmel River in Monterey County south to the San Carpoforo Creek in San Luis Obispo County,[1][2] and extend about 20 miles (30 km) inland to the eastern foothills of the Santa Lucias.',
       image: 'https://res-5.cloudinary.com/simpleview/image/upload/f_auto,q_60,w_1200/v1/clients/monterey_county/EE9764434C2E06411FBECA7C33189403_14f2651a-d1d8-4936-aa46-d59e56c3d904.jpg',
       votes: 11,
+
       date: Date.now(),
       comments: [{
           author: 'Joe',
@@ -53,12 +53,12 @@ app.controller('reddit', function($scope) {
     $scope.showme = !$scope.showme;
   }
 
-  $scope.toggleComments = function() {
-    $scope.showComm = !$scope.showComm;
+  $scope.toggleComments = function(x) {
+    x.showing = !x.showing
   }
 
-  $scope.toggleNewComm = function() {
-    $scope.showNewComm = !$scope.showNewComm;
+  $scope.toggleNewComm = function(y) {
+    y.formshowing = !y.formshowing
   }
 
   $scope.addPost = function() {
@@ -70,6 +70,8 @@ app.controller('reddit', function($scope) {
     postData.image = $scope.image;
     postData.date = Date.now();
     postData.votes = 0;
+    postData.formshowing = false;
+    postData.showing = false;
     postData.comments = [];
     $scope.posts.push(postData);
   }

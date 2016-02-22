@@ -9,6 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/1.0.0-beta.3/angular-moment.min.js"></script>
     <script type='text/javascript' src='index.js'></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
     <link rel="stylesheet" href="style.css">
   </head>
   <body ng-controller='reddit'>
@@ -45,7 +46,7 @@
        </form>
       </div>
       <div class='mainContainer'>
-         <table ng-repeat='post in posts | orderBy:sort | filter:search'>
+         <table class='ng-enter' ng-repeat='post in posts | orderBy:sort | filter:search'>
           <tr>
              <td><img src='{{post.image}}' alt='{{post.title}}'></td>
                  <td>
@@ -63,26 +64,26 @@
                   <br>
                 <div>
                   <span class="fa fa-calendar"></span> {{post.date | amCalendar}} |
-                  <span ng-model='comments' ng-click='toggleComments()'>
+                  <span class= 'comments' ng-model='comments' ng-click='toggleComments(this)'>
                       <span class='fa fa-comments'></span>
                       <ng-pluralize count='post.comments.length' when="{'0': 'No comments | ', '1': '1 comment | ', 'other': '{{post.comments.length}} comments | '}"></ng-pluralize>
                   </span>
-                  <span ng-model='newcomment' ng-click='toggleNewComm()'>
+                  <span class ='newComms' ng-model='newcomment' ng-click='toggleNewComm(this)'>
                     <span class='fa fa-pencil'>Add Comment</span>
                   </span>
                 </div>
                 <br>
-                <div ng-show='showNewComm'>
+                <div ng-show='formshowing'>
                   <form novalidate name='newComment' ng-submit='post.comments.push(newComment); newComment = {}; comments = true; newcomment = false;' >
                     <label for='name'>Name: </label>
                     <input type='text' ng-model='newComment.author' required ng-minlength=2>
                     <label for='comment'>Comment: </label>
                     <input type='text' ng-model='newComment.comment' required ng-maxlength=200>
-                    <button ng-disabled='newComment.$invalid'>Add Comment</button>
+                    <button ng-click='toggleNewComm(this)' ng-disabled='newComment.$invalid'>Add Comment</button>
                   </form>
                 </div>
                 <br>
-                <div ng-show='showComm'>
+                <div ng-show='showing'>
                   <ul ng-repeat='comment in post.comments'>
                     <li>
                       <h4>{{comment.author}}</h4>

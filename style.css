@@ -2,6 +2,10 @@
   margin: 0;
 }
 
+span {
+  cursor: pointer;
+}
+
 input.ng-invalid.ng-dirty {
  border: 2px solid red;
 }
@@ -12,6 +16,10 @@ input.ng-valid.ng-dirty {
 body {
   font-family: Arial, sans-serif;
   font-size: .9rem;
+}
+
+.ng-enter {
+  animation: bounceInLeft 1s;
 }
 
 header {
@@ -79,11 +87,11 @@ main {
 table {
     border-collapse: collapse;
     margin-bottom: 2.5rem;
+    width: 100%;
 }
 
 tr {
   background-color: #D3D3D3;
-  padding: 1rem;
 }
 
 img {
@@ -119,4 +127,12 @@ img {
 
 li {
   list-style: none;
+}
+
+.comments {
+  font-size: .95rem;
+}
+
+.newComms {
+  font-size: .9rem;
 }
