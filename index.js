@@ -1,6 +1,9 @@
 var app = angular.module('RedditClone', ['angularMoment', 'ngAnimate']);
-
 app.controller('reddit', function($scope) {
+  $scope.showme = false;
+  $scope.showComm = false;
+  $scope.showNewComm = false;
+
   $scope.posts= [
     { title: 'Big Sur, CA',
       author: 'Michael Scott',
@@ -45,6 +48,18 @@ app.controller('reddit', function($scope) {
       comments: []
     }
   ];
+
+  $scope.togglePostForm = function () {
+    $scope.showme = !$scope.showme;
+  }
+
+  $scope.toggleComments = function() {
+    $scope.showComm = !$scope.showComm;
+  }
+
+  $scope.toggleNewComm = function() {
+    $scope.showNewComm = !$scope.showNewComm;
+  }
 
   $scope.addPost = function() {
     var postData = {};

@@ -15,7 +15,7 @@
     <header>
       <div>
         <h2><i class="fa fa-reddit-alien"></i>Reddit Clone</h2>
-        <button class='newPost' ng-click='showme=true'><i class='fa fa-plus'></i>Submit Post</button>
+        <button class='newPost' ng-click='togglePostForm()'><i class='fa fa-plus'></i>Submit Post</button>
         <p><input type='text' placeholder='Search' ng-model='search'></p>
         <span>Sort by
           <select ng-model='sort' ng-init='sort=votes'>
@@ -30,16 +30,16 @@
       <div class='form' ng-show='showme'>
        <form class='new=post' name='postData' ng-submit='addPost()'>
          <label for='title'>Title</label>
-         <input name='title' type='text' ng-model='title' ng-minlength='2' ng-maxlength='50' required>
+         <input name='title' type='text' ng-model='title' required>
          <br>
          <label for='author'>Author</label>
-         <input name='author' type='text' ng-model='author' ng-minlength='2' ng-maxlength='50' required>
+         <input name='author' type='text' ng-model='author' required>
          <br>
          <label for='image'>Image URL</label>
-         <input name='image' type='url' ng-model='image' ng-minlength='7' required>
+         <input name='image' type='url' ng-model='image' required>
          <br>
          <label for='description'>Description</label>
-         <textarea name='description' ng-model='description' ng-minlength='5' ng-maxlength='255' required></textarea>
+         <textarea name='description' ng-model='description' required></textarea>
          <br>
          <button class='newSubmit' ng-click='showme=false'>Submit Post</button>
        </form>
@@ -63,11 +63,11 @@
                   <br>
                 <div>
                   <span class="fa fa-calendar"></span> {{post.date | amCalendar}} |
-                  <span ng-model='comments' ng-click='showComm=true'>
+                  <span ng-model='comments' ng-click='toggleComments()'>
                       <span class='fa fa-comments'></span>
                       <ng-pluralize count='post.comments.length' when="{'0': 'No comments | ', '1': '1 comment | ', 'other': '{{post.comments.length}} comments | '}"></ng-pluralize>
                   </span>
-                  <span ng-model='newcomment' ng-click='showNewComm=true'>
+                  <span ng-model='newcomment' ng-click='toggleNewComm()'>
                     <span class='fa fa-pencil'>Add Comment</span>
                   </span>
                 </div>
@@ -75,9 +75,9 @@
                 <div ng-show='showNewComm'>
                   <form name='newComment'  ng-submit='post.comments.push(newComment); newComment = {}; comments = true; newcomment = false;' >
                     <label for='name'>Name: </label>
-                    <input type='text' ng-model='newComment.author' ng-minlength='2' ng-maxlength='50' required>
+                    <input type='text' ng-model='newComment.author' required>
                     <label for='comment'>Comment: </label>
-                    <input type='text' ng-model='newComment.comment' ng-minlength='5' ng-maxlength='200' required>
+                    <input type='text' ng-model='newComment.comment' required>
                     <button>Add Comment</button>
                   </form>
                 </div>
