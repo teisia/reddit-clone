@@ -28,20 +28,20 @@
     </header>
     <main>
       <div class='form' ng-show='showme'>
-       <form class='new=post' name='postData' ng-submit='addPost()'>
+       <form novalidate class='new=post' name='postData' ng-submit='addPost()'>
          <label for='title'>Title</label>
-         <input name='title' type='text' ng-model='title' required>
+         <input name='title' type='text' ng-model='title' required ng-minlength=5>
          <br>
          <label for='author'>Author</label>
-         <input name='author' type='text' ng-model='author' required>
+         <input name='author' type='text' ng-model='author' required ng-minlength=2>
          <br>
          <label for='image'>Image URL</label>
-         <input name='image' type='url' ng-model='image' required>
+         <input name='image' type='url' ng-model='image' required ng-minlength=5>
          <br>
          <label for='description'>Description</label>
-         <textarea name='description' ng-model='description' required></textarea>
+         <textarea name='description' ng-model='description' required ng-maxlength=255></textarea>
          <br>
-         <button class='newSubmit' ng-click='showme=false'>Submit Post</button>
+         <button class='newSubmit' ng-disabled='postData.$invalid' ng-click='showme=false'>Submit Post</button>
        </form>
       </div>
       <div class='mainContainer'>
@@ -73,12 +73,12 @@
                 </div>
                 <br>
                 <div ng-show='showNewComm'>
-                  <form name='newComment'  ng-submit='post.comments.push(newComment); newComment = {}; comments = true; newcomment = false;' >
+                  <form novalidate name='newComment' ng-submit='post.comments.push(newComment); newComment = {}; comments = true; newcomment = false;' >
                     <label for='name'>Name: </label>
-                    <input type='text' ng-model='newComment.author' required>
+                    <input type='text' ng-model='newComment.author' required ng-minlength=2>
                     <label for='comment'>Comment: </label>
-                    <input type='text' ng-model='newComment.comment' required>
-                    <button>Add Comment</button>
+                    <input type='text' ng-model='newComment.comment' required ng-maxlength=200>
+                    <button ng-disabled='newComment.$invalid'>Add Comment</button>
                   </form>
                 </div>
                 <br>

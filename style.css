@@ -2,6 +2,13 @@
   margin: 0;
 }
 
+input.ng-invalid.ng-dirty {
+ border: 2px solid red;
+}
+input.ng-valid.ng-dirty {
+ border: 2px solid green;
+}
+
 body {
   font-family: Arial, sans-serif;
   font-size: .9rem;
@@ -67,6 +74,11 @@ main {
   padding-top: 2rem;
   width: 70%;
   margin: 0 auto;
+}
+
+table {
+    border-collapse: collapse;
+    margin-bottom: 2.5rem;
 }
 
 tr {
