@@ -43,21 +43,24 @@
       <div class='mainContainer'>
          <table class='ng-enter' ng-repeat='post in posts | orderBy:sort | filter:search'>
           <tr>
-             <td><img src='{{post.image}}' alt='{{post.title}}'></td>
-                 <td>
+             <td><div class='img'><img src='{{post.image}}' alt='{{post.title}}'></div></td>
+                 <td class='rightSide'>
+                 <br>
+                 <div class='titleVotes'>
                    <h3 class='postTitle'>{{post.title}}</h3>
                    <span class='votes'>
     								  <span ng-click='post.votes = post.votes + 1' class='fa fa-arrow-up'></span>
                       <span ng-click='post.votes = post.votes - 1' class='fa fa-arrow-down'></span>
                       <span ng-class="{'positive': post.votes > 0, 'negative': post.votes < 0, 'neutral': post.votes == 0}">{{post.votes}}</span>
     							</span>
-                  <br>
-                  <br>
+                 </div>
+                 <div class='authorDesc'>
                   <p>by {{post.author}}</p>
                   <br>
                   <p>{{post.description}}</p>
                   <br>
-                <div>
+                 </div>
+                <div class='dateComNewCom'>
                   <span class="fa fa-calendar"></span> {{post.date | amCalendar}} |
                   <span class= 'comments' ng-model='comments' ng-click='toggleComments(this)'>
                       <span class='fa fa-comments'></span>
@@ -68,17 +71,16 @@
                   </span>
                 </div>
                 <br>
-                <div ng-show='formshowing'>
+                <div class='commForm' ng-show='formshowing'>
                   <form novalidate name='newComment' ng-submit='post.comments.push(newComment); newComment = {}; comments = true; newcomment = false;' >
                     <label for='name'>Name: </label>
                     <input type='text' ng-model='newComment.author' required ng-minlength=2>
                     <label for='comment'>Comment: </label>
-                    <input type='text' ng-model='newComment.comment' required ng-maxlength=200>
+                    <input class='commentBox' type='text' ng-model='newComment.comment' required ng-maxlength=200>
                     <button ng-click='toggleNewComm(this)' ng-disabled='newComment.$invalid'>Add Comment</button>
                   </form>
                 </div>
-                <br>
-                <div ng-show='showing'>
+                <div class='allComments' ng-show='showing'>
                   <ul ng-repeat='comment in post.comments'>
                     <li>
                       <h4>{{comment.author}}</h4>
@@ -87,7 +89,6 @@
                     <br>
                   </ul>
                 </div>
-                <br>
                </td>
           </tr>
         </table>

@@ -16,6 +16,7 @@ input.ng-valid.ng-dirty {
 body {
   font-family: Arial, sans-serif;
   font-size: .9rem;
+  color: black;
 }
 
 .ng-enter {
@@ -24,7 +25,7 @@ body {
 
 header {
   width: 100vw;
-  background-color: #D3D3D3;
+  background-color: #ECECEC
 }
 
 header>div{
@@ -41,10 +42,11 @@ header p, span, input {
 
 i {
   margin-right: .357rem;
+  color: black;
 }
 
 button.newPost {
-  background-color: #D3D3D3;
+  background-color: #ECECEC;
   border: none;
   font-size: 1rem;
 }
@@ -91,12 +93,12 @@ table {
 }
 
 tr {
-  background-color: #D3D3D3;
+  background-color: #ECECEC
 }
 
 img {
-  width: 250px;
-  height: 200px;
+  width: 275px;
+  height: 225px;
 }
 
 .new-post {
@@ -135,4 +137,35 @@ li {
 
 .newComms {
   font-size: .9rem;
+}
+
+.titleVotes {
+  display: flex;
+  flex-direction: row;
+  margin: 1rem 0 0 1rem;
+}
+
+.authorDesc {
+  margin: 1rem;
+  text-align: justify;
+}
+
+.dateComNewCom {
+  margin: 0 1rem 1rem 1rem;
+}
+
+.img {
+  margin: 1rem;
+}
+
+.allComments {
+  margin: 1rem 0 2rem -1.5rem;
+}
+
+.commForm {
+  margin: 1rem 1rem 2rem 1rem;
+}
+
+.rightSide {
+  width: 70%;
 }
