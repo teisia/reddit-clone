@@ -2,7 +2,6 @@ var app = angular.module('RedditClone', ['angularMoment', 'ngAnimate']);
 app.controller('reddit', function($scope) {
   $scope.showme = false;
 
-
   $scope.posts= [
     { title: 'Big Sur, CA',
       author: 'Michael Scott',
