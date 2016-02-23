@@ -14,8 +14,8 @@
         <button class='newPost' ng-click='togglePostForm()'><i class='fa fa-plus'></i>Submit Post</button>
         <p><input type='text' placeholder='Search' ng-model='search'></p>
         <span>Sort by
-          <select ng-model='sort' ng-init='sort=votes'>
-            <option value='votes'>votes</option>
+          <select ng-model='sort' ng-init='sort="-votes"'>
+            <option value='-votes'>votes</option>
             <option value='date'>date</option>
             <option value='title'>title</option>
           </select>

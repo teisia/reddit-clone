@@ -8,7 +8,6 @@ app.controller('reddit', function($scope) {
       description: 'Big Sur is a lightly populated region of the Central Coast of California where the Santa Lucia Mountains rise abruptly from the Pacific Ocean. Although it has no specific boundaries, many definitions of the area include the 90 miles (140 km) of coastline from the Carmel River in Monterey County south to the San Carpoforo Creek in San Luis Obispo County,[1][2] and extend about 20 miles (30 km) inland to the eastern foothills of the Santa Lucias.',
       image: 'https://res-5.cloudinary.com/simpleview/image/upload/f_auto,q_60,w_1200/v1/clients/monterey_county/EE9764434C2E06411FBECA7C33189403_14f2651a-d1d8-4936-aa46-d59e56c3d904.jpg',
       votes: 11,
-
       date: Date.now(),
       comments: [{
           author: 'Joe',
