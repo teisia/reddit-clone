@@ -1,0 +1,9 @@
+{
+  "firebase": "teisia-reddit-clone",
+  "public": "public",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
